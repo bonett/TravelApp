@@ -1,13 +1,16 @@
 import {StyleSheet} from 'react-native';
 
 export default styles = StyleSheet.create({
-  flex: {
-    flex: 1,
+  container: {
+    margin: 32
   },
-  safeView: {
-    backgroundColor: 'red',
+  subtitle: {
+    fontSize: 20,
+    color: "#000000",
+    marginTop: 40,
+    marginBottom: 34
   },
-  view: {
-    backgroundColor: 'yellow',
-  },
+  row: {
+    flexDirection: 'row'
+  }
 });
