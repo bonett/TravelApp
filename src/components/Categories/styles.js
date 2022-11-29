@@ -8,14 +8,13 @@ export default styles = StyleSheet.create({
   },
   selectedItem: {
     color: '#000000',
-    fontWeight: 'bold',
   },
   itemContainer: {
     marginRight: 17,
-    marginVertical: 14,
+    marginBottom: 14,
   },
   selectedItemContainer: {
     borderBottomColor: '#4681A3',
-    borderBottomWidth: 2,
+    borderBottomWidth: 1,
   },
 });

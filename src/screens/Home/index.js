@@ -1,51 +1,74 @@
 import React, {useEffect, useState} from 'react';
-import {SafeAreaView, View} from 'react-native';
+import {FlatList, SafeAreaView, Text, View} from 'react-native';
 import AttractionCard from '../../components/AttractionCard';
 import Categories from '../../components/Categories';
 import Title from '../../components/Title';
 import styles from './styles';
+import jsonData from '../../data/attractions.json';
+import categories from '../../data/categories.json';
+
+const ALL = 'All';
 
 const Home = () => {
-  const [selectedCategory, setSelectedCategory] = useState('All');
+  const [selectedCategory, setSelectedCategory] = useState(ALL);
+  const [data, setData] = useState([]);
+
+  useEffect(() => {
+    setData(jsonData);
+  }, []);
+
+  useEffect(() => {
+    if (selectedCategory === ALL) {
+      setData(jsonData);
+    } else {
+      const filteredData = jsonData?.filter(item =>
+        item?.categories?.includes(selectedCategory),
+      );
+
+      setData(filteredData);
+    }
+  }, [selectedCategory]);
 
   return (
-    <SafeAreaView>
-      <View style={styles.container}>
-        <Title text={'Where do'} style={{fontWeight: 'normal'}} />
-        <Title text={'you want to go?'} />
+    <SafeAreaView style={styles.container}>
+      <FlatList
+        data={data}
+        numColumns={2}
+        style={{flexGrow: 1}}
+        ListEmptyComponent={
+          <Text style={styles.emptyText}>No items found.</Text>
+        }
+        ListHeaderComponent={
+          <>
+            <View style={{margin: 32}}>
+              <Title text="Where do" style={{fontWeight: 'normal'}} />
+              <Title text="you want to go" />
 
-        <Title text={'Explore Attractions'} style={styles.subtitle} />
+              <Title text="Explore Attractions" style={styles.subtitle} />
+            </View>
 
-        <Categories
-          selectedCategory={selectedCategory}
-          onCategoryPress={setSelectedCategory}
-          categories={[
-            'All',
-            'Popular',
-            'Recommended',
-            'Most Viewed',
-            'Most Visited',
-            'Others',
-          ]}
-        />
-
-        <View style={styles.row}>
+            <Categories
+              selectedCategory={selectedCategory}
+              onCategoryPress={setSelectedCategory}
+              categories={[ALL, ...categories]}
+            />
+          </>
+        }
+        keyExtractor={item => String(item?.id)}
+        renderItem={({item, index}) => (
           <AttractionCard
-            title={'Egypt'}
-            subtitle={'Cairo'}
-            imageSrc={
-              'https://imgs.search.brave.com/LIHrpO5jAYXAU-vm0xaVVaQpBRElI5XEGYpMI4icTnE/rs:fit:870:225:1/g:ce/aHR0cHM6Ly90c2U0/Lm1tLmJpbmcubmV0/L3RoP2lkPU9JUC5o/R2hzVzVvRHA1Y3Ew/V1hYcmxhSnVRSGFF/QyZwaWQ9QXBp'
+            key={item.id}
+            style={
+              index % 2 === 0
+                ? {marginRight: 12, marginLeft: 32}
+                : {marginRight: 32}
             }
+            title={item.name}
+            subtitle={item.city}
+            imageSrc={item.images?.length ? item.images[0] : null}
           />
-          <AttractionCard
-            title={'Egypt'}
-            subtitle={'Cairo'}
-            imageSrc={
-              'https://imgs.search.brave.com/LIHrpO5jAYXAU-vm0xaVVaQpBRElI5XEGYpMI4icTnE/rs:fit:870:225:1/g:ce/aHR0cHM6Ly90c2U0/Lm1tLmJpbmcubmV0/L3RoP2lkPU9JUC5o/R2hzVzVvRHA1Y3Ew/V1hYcmxhSnVRSGFF/QyZwaWQ9QXBp'
-            }
-          />
-        </View>
-      </View>
+        )}
+      />
     </SafeAreaView>
   );
 };
