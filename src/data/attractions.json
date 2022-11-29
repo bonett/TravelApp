@@ -89,11 +89,11 @@
     "address": "Sambodromo, 3242332 Rio de jaineiro, Brasil",
     "opening_time": "9:00 AM",
     "closing_time": "7:00 PM",
-    "categories": ["Most Visited", "Historical"],
+    "categories": ["Most Visited", "Trending", "Popular"],
     "images": [
       "https://imgs.search.brave.com/-yzAG28msqEsgSz3QewhYydXD21g1e4YrjAQ4I3nrbY/rs:fit:670:225:1/g:ce/aHR0cHM6Ly90c2Uz/Lm1tLmJpbmcubmV0/L3RoP2lkPU9JUC5G/dHUyaERWbXlIQURm/VjhGLTdWMDJ3SGFG/UCZwaWQ9QXBp",
       "https://imgs.search.brave.com/Hdg-TmdEr7fGuB-i2VbW5mvYmwMqpDlPR2nH5oMpVwQ/rs:fit:854:225:1/g:ce/aHR0cHM6Ly90c2Uz/LmV4cGxpY2l0LmJp/bmcubmV0L3RoP2lk/PU9JUC5oUWRWbHhN/LTJlc09KQlg1YWg0/eUJRSGFFSCZwaWQ9/QXBp",
-      "https://imgs.search.brave.com/bMQXvCEVkgYxdyPneM_qUSdCa50dEJtqrKkF5RCryWI/rs:fit:632:225:1/g:ce/aHR0cHM6Ly90c2Uz/LmV4cGxpY2l0LmJp/bmcubmV0L3RoP2lk/PU9JUC5vZ3RuNFFp/ZGFMcnFCZkp0aU9s/dTlBSGFGaiZwaWQ9/QXBp",
+      "https://imgs.search.brave.com/bMQXvCEVkgYxdyPneM_qUSdCa50dEJtqrKkF5RCryWI/rs:fit:632:225:1/g:ce/aHR0cHM6Ly90c2Uz/LmV4cGxpY2l0LmJp/bmcubmV0L3RoP2lk/PU9JUC5vZ3RuNFFp/ZGFMcnFCZkp0aU9s/dTlBSGFGaiZwaWQ9/QXBp"
     ],
     "coordinates": {
       "lat": 41.8902,
