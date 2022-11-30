@@ -71,4 +71,10 @@ export default styles = StyleSheet.create({
     fontWeight: '400',
     marginTop: 8,
   },
+  map: {
+    borderRadius: 10,
+    height: 200,
+    paddingBottom: 140,
+    width: '100%',
+  }
 });
